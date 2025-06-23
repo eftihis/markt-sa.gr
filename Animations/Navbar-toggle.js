@@ -47,6 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Function to control tabindex of nav items
+    function updateNavItemsTabIndex(isOpen) {
+        elements.menuLinks.forEach(link => {
+            if (isOpen) {
+                // Enable tab navigation when menu is open
+                link.removeAttribute('tabindex');
+            } else {
+                // Disable tab navigation when menu is closed
+                link.setAttribute('tabindex', '-1');
+            }
+        });
+    }
+
     // Keep these ARIA attributes
     if (elements.navButton) {
         elements.navButton.setAttribute('aria-expanded', 'false');
@@ -56,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (elements.navMenu) {
         elements.navMenu.id = 'nav-menu';
     }
+
+    // Initialize tabindex state (menu starts closed)
+    updateNavItemsTabIndex(false);
 
     function toggleNav() {
         const isOpen = elements.navMenu.classList.contains('is-open');
@@ -84,6 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 line.classList.toggle('is-open');
             }, 150 + index * 50);
         });
+
+        // Update tabindex based on menu state
+        updateNavItemsTabIndex(!isOpen);
 
         // Use improved scroll lock
         if (elements.navMenu.classList.contains('is-open')) {
