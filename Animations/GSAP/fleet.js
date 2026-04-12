@@ -51,11 +51,18 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "power2.out",
             stagger: { amount: 0.4 }
         }, "<.2")
+        .from(".fleet_section_content", {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: { amount: 0.4 }
+        }, "<.2")
         .from(".fleet-item_wrap", {
             opacity: 0,
             x: xOffset,
             duration: 0.8,
             ease: "power2.inOut",
             stagger: { amount: 0.5 }
-        }, "<.2");
+        }, "");
 });
