@@ -18,7 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 20,
             duration: 0.6,
             ease: "power2.out"
-        }, "<0.3");
+        }, "<0.3")
+        .from("#fleet-subtitle-text", {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: "power2.out"
+        }, "<0.2");
+   
 
     // Service Animations
     let serviceTl = gsap.timeline({ paused: true });
