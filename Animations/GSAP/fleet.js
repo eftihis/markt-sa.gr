@@ -43,26 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "power2.out",
         stagger: { amount: 0.5, from: "random" }
     })
-        .from(".vehicles_title", {
+       
+        .from(".fleet_section_title", {
             opacity: 0,
             y: 20,
             duration: 0.6,
             ease: "power2.out",
-            stagger: { amount: 0.5 }
-        }, "<.3")
-        .from(".service_icon", {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            ease: "power2.out",
-            stagger: { amount: 0.5 }
-        }, "<.2")
-        .from(".service_description", {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            ease: "power2.out",
-            stagger: { amount: 0.5 }
+            stagger: { amount: 0.4 }
         }, "<.2")
         .from(".fleet-item_wrap", {
             opacity: 0,
