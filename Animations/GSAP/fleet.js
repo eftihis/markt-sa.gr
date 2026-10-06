@@ -24,7 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 20,
             duration: 0.6,
             ease: "power2.out"
-        }, "<0.2");
+        }, "<0.2")
+        .from(".imag_pair_img_cover", {
+            opacity: 0,
+            y: 20,
+            duration: 0.7,
+            ease: "power2.out",
+            stagger: { amount: 0.35 }
+        }, "<0.1");
    
 
     // Service Animations
