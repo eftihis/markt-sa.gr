@@ -24,14 +24,23 @@ document.addEventListener('DOMContentLoaded', () => {
             y: 20,
             duration: 0.6,
             ease: "power2.out"
-        }, "<0.2")
-        .from(".imag_pair_img_cover", {
-            opacity: 0,
-            y: 20,
-            duration: 0.7,
-            ease: "power2.out",
-            stagger: { amount: 0.35 }
-        }, "<0.1");
+        }, "<0.2");
+
+    // Animate cover images when the fleet block enters viewport
+    ScrollTrigger.create({
+        trigger: ".fleet_services_wrap",
+        start: "top 80%",
+        once: true,
+        onEnter: () => {
+            gsap.from(".imag_pair_img_cover", {
+                opacity: 0,
+                y: 30,
+                duration: 0.9,
+                ease: "power2.out",
+                stagger: 0.18
+            });
+        }
+    });
    
 
     // Fleet section animations
