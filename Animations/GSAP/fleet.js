@@ -26,19 +26,34 @@ document.addEventListener('DOMContentLoaded', () => {
             ease: "power2.out"
         }, "<0.2");
 
-    // Animate cover images when the fleet block enters viewport
+    // Animate cover images below the header area
+    gsap.fromTo(".imag_pair_img_cover",
+        {
+            autoAlpha: 0,
+            y: 40
+        },
+        {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power2.out",
+            stagger: 0.18,
+            clearProps: "transform,opacity,visibility",
+            scrollTrigger: {
+                trigger: ".image_grid_cover",
+                start: "top 85%",
+                once: true
+            }
+        }
+    );
+
     ScrollTrigger.create({
         trigger: ".fleet_services_wrap",
         start: "top 80%",
         once: true,
         onEnter: () => {
-            gsap.from(".imag_pair_img_cover", {
-                opacity: 0,
-                y: 30,
-                duration: 0.9,
-                ease: "power2.out",
-                stagger: 0.18
-            });
+            // Keep ScrollTrigger state fresh on Webflow pages with dynamic layout shifts.
+            ScrollTrigger.refresh();
         }
     });
    
